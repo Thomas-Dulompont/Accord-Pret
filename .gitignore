@@ -5,6 +5,8 @@ __pycache__/
 
 data/data.csv
 
+*.csv
+
 # C extensions
 *.so
 
