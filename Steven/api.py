@@ -27,5 +27,7 @@ def predict(data : request_body):
    
     print("La classe pred:",model_XGBoost.predict(pred)[0])
     class_pred = model_XGBoost.predict(pred)[0]
-    
-    return {'class':int(class_pred)}
+    if class_pred == 0 :
+        return {'class':"Le credit à peu de risque d'etre en default"}
+    elif class_pred == 1:
+        return {'class':"Le credit à un risque important d'etre en default"}
