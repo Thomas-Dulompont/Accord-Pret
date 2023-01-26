@@ -9,7 +9,7 @@ model_XGBoost = pickle.load(pickle_in)
 app = FastAPI()
 
 
-@app.get("/predict/{data}")
+@app.get("/predict/")
 def predict(State : str,
     BankState: str,
     Term : float,
@@ -21,7 +21,7 @@ def predict(State : str,
     have_franchise : int,
     sector : str,
     in_recession: int):
-    
+
     data={
         "State" : State,
         "BankState": BankState,
