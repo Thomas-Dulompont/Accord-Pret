@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from . import forms
+from . import forms,functions
 import requests
 import json
 
@@ -13,10 +13,24 @@ def estimator_view(request):
         form = forms.ModelForm(request.POST)
         
         if form.is_valid():
-            data = json.dumps(form.data)
+            data ={
+                "State" : form.data["State"],
+                "BankState": form.data["BankState"],
+                "Term" : form.data["Term"],
+                "NoEmp" : form.data["NoEmp"],
+                "NewExist" : functions.is_new(form.data["NewExist"]),
+                "UrbanRural" :form.data["UrbanRural"],
+                "LowDoc" : functions.correction( form.data["LowDoc"]),
+                "GrAppv" : form.data["GrAppv"],
+                "have_franchise" : functions.correction(form.data["FranchiseCode"]),
+                "sector" : functions.get_sector(form.data["NAICS"]),
+                "in_recession": functions.correction(form.data["in_recession"])
+                }
+            print("\n data : \n",data)
+            data = json.dumps(data)
             reponse = requests.post(url,data=data)
             info = reponse.text
-            print(info,data)
+            
             return render(request, 'model.html', context={'form' : form, 'info' : info})
 
     else:

@@ -1,4 +1,5 @@
 from django import forms
+
 etats = [('IN', 'IN'),('CT', 'CT'),('FL', 'FL'),('NC', 'NC'),('IL', 'IL'),('OK', 'OK'),('AR', 'AR'),('MN', 'MN'),('CA', 'CA'),('SC', 'SC'),('TX', 'TX'),('LA', 'LA'),('IA', 'IA'),('TN', 'TN'),('MS', 'MS'),('OH', 'OH'),('MD', 'MD'),('VA', 'VA'),('MA', 'MA'),('PA', 'PA'),('OR', 'OR'),('ME', 'ME'),('KS', 'KS'),('MI', 'MI'),('AK', 'AK'),('WA', 'WA'),('CO', 'CO'),('WY', 'WY'),('UT', 'UT'),('MO', 'MO'),('AZ', 'AZ'),('ID', 'ID'),('RI', 'RI'),('NJ', 'NJ'),('NH', 'NH'),('NM', 'NM'),('NV', 'NV'),('NY', 'NY'),('ND', 'ND'),('VT', 'VT'),('WI', 'WI'),('MT', 'MT'),('AL', 'AL'),('GA', 'GA'),('KY', 'KY'),('NE', 'NE'),('WV', 'WV'),('SD', 'SD'),('DE', 'DE'),('DC', 'DC'),('HI', 'HI')]
 
 class ModelForm(forms.Form):
@@ -9,8 +10,10 @@ class ModelForm(forms.Form):
     NoEmp = forms.IntegerField(label="Nombre d'employés", min_value=1, max_value=9999)
     FranchiseCode = forms.BooleanField(label="Franchisé ?")
     NAICS = forms.IntegerField(label="Code NAICS (Laisser vide si vous n'en avez pas)")
-    year_create = forms.IntegerField(label="Année de création")
+    NewExist = forms.BooleanField(label="Plus de 2 ans de creation",widget=forms.CheckboxInput())
     UrbanRural = forms.CharField(label="Zone Rurale ou Urbaine")
+   
+   
 
     # Objectifs
     CreateJob = forms.IntegerField(label="Nombre de poste créés", min_value=1, max_value=5621)
