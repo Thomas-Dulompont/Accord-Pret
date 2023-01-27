@@ -20,11 +20,11 @@ def estimator_view(request):
                 "NoEmp" : form.data["NoEmp"],
                 "NewExist" : functions.is_new(form.data["NewExist"]),
                 "UrbanRural" :form.data["UrbanRural"],
-                "LowDoc" : functions.correction( form.data["LowDoc"]),
+                "LowDoc" :  form.data["LowDoc"],
                 "GrAppv" : form.data["GrAppv"],
-                "have_franchise" : functions.correction(form.data["FranchiseCode"]),
+                "have_franchise" : form.data["FranchiseCode"],
                 "sector" : functions.get_sector(form.data["NAICS"]),
-                "in_recession": functions.correction(form.data["in_recession"])
+                "in_recession": form.data["in_recession"]
                 }
             print("\n data : \n",data)
             data = json.dumps(data)

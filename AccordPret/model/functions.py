@@ -46,13 +46,3 @@ def is_new(code):
         return "Existing"
     else:
         return "New"
-
-def correction(code):
-    """
-    Retourne si le buisness est nouveau ou non 
-    """
-
-    if code.lower() == "on":
-        return 1
-    else:
-        return 0   
