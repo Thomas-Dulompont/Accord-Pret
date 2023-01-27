@@ -37,12 +37,4 @@ def get_sector(naics):
         return sector[first_two_digits]
     else:
         return "Sector not known"
-def is_new(code):
-    """
-    Retourne si le buisness est nouveau ou non 
-    """
 
-    if code.lower() == "on":
-        return "Existing"
-    else:
-        return "New"

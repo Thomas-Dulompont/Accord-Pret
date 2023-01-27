@@ -18,7 +18,7 @@ def estimator_view(request):
                 "BankState": form.data["BankState"],
                 "Term" : form.data["Term"],
                 "NoEmp" : form.data["NoEmp"],
-                "NewExist" : functions.is_new(form.data["NewExist"]),
+                "NewExist" : form.data["NewExist"],
                 "UrbanRural" :form.data["UrbanRural"],
                 "LowDoc" :  form.data["LowDoc"],
                 "GrAppv" : form.data["GrAppv"],
@@ -29,9 +29,9 @@ def estimator_view(request):
             print("\n data : \n",data)
             data = json.dumps(data)
             reponse = requests.post(url,data=data)
-            info = reponse.text
+            info = reponse.json()
             
-            return render(request, 'model.html', context={'form' : form, 'info' : info})
+            return render(request, 'model.html', context={'form' : form, 'info' : info["class"]})
 
     else:
         form = forms.ModelForm()

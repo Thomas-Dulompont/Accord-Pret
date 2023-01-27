@@ -10,8 +10,8 @@ class ModelForm(forms.Form):
     NoEmp = forms.IntegerField(label="Nombre d'employés", min_value=1, max_value=9999)
     FranchiseCode = forms.CharField(label="Franchisé ?", widget=forms.Select(choices=[(1,"oui"),(0,"non")]))
     NAICS = forms.IntegerField(label="Code NAICS (Laisser vide si vous n'en avez pas)")
-    NewExist = forms.CharField(label="A t-elle plus de 2ans ?", widget=forms.Select(choices=[(1,"oui"),(0,"non")]))
-    UrbanRural = forms.CharField(label="Zone Rurale ou Urbaine")
+    NewExist = forms.CharField(label="A t-elle plus de 2ans ?", widget=forms.Select(choices=[("Existing","oui"),("New","non")]))
+    UrbanRural = forms.CharField(label="Zone Rurale ou Urbaine", widget=forms.Select(choices=[("Urban","Urban"),("Rural","Rural"),("Undefined","Undefined")]))
    
    
 
