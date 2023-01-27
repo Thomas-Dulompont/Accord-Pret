@@ -1,12 +1,40 @@
 import pickle
-from fastapi import FastAPI
-from pydantic import BaseModel
 import pandas as pd
+from fastapi import FastAPI
+from fastapi.middleware import Middleware
+from fastapi.middleware.cors import CORSMiddleware
 
 pickle_in = open('./model_XGBoost.pkl', 'rb') 
 model_XGBoost = pickle.load(pickle_in)
 
-app = FastAPI()
+
+origins = [
+    "http://localhost.tiangolo.com",
+    "https://localhost.tiangolo.com",
+    "http://localhost",
+    "http://localhost:8080",
+    "http://localhost:5500",
+    "http://localhost:8000",
+    "https://localhost",
+    "https://localhost:8080",
+    "https://localhost:5500",
+    "https://localhost:8000",
+    "127.0.0.1:8000",
+    "http://127.0.0.1:5500",
+]
+
+middleware = [
+    Middleware(
+        CORSMiddleware,
+        allow_origins=origins,
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+]
+
+
+app = FastAPI(middleware=middleware)
 
 
 @app.get("/predict/")
@@ -36,8 +64,6 @@ def predict(State : str,
         "in_recession": in_recession
     }
     pred=pd.DataFrame(dict(data),index=[0])
-   
-    print("La classe pred:",model_XGBoost.predict(pred)[0])
     class_pred = model_XGBoost.predict(pred)[0]
     if class_pred == 0 :
         return {'class':"Le credit à peu de risque d'etre en default"}
