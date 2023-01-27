@@ -3,84 +3,11 @@
 {% block content %}
 <form method="post">
     {% csrf_token %}
-    <div class='section'>
-        <h3>Informations sur votre Entreprise</h3>
-        <div>
-            {{form.Name.label}}
-            {{form.Name}}
-        </div>
-        <div>
-            {{form.City.label}}
-            {{form.City}}
-        </div>
-        <div>
-            {{form.Zip.label}}
-            {{form.Zip}}
-        </div>
-        <div>
-            {{form.State.label}}
-            {{form.State}}
-        </div>
-        <div>
-            {{form.NoEmp.label}}
-            {{form.NoEmp}}
-        </div>
-        <div>
-            {{form.FranchiseCode.label}}
-            {{form.FranchiseCode}}
-        </div>
-        <div>
-            {{form.NAICS.label}}
-            {{form.NAICS}}
-        </div>
-        <div>
-            {{form.year_create.label}}
-            {{form.year_create}}
-        </div>
-        <div>
-            {{form.UrbanRural.label}}
-            {{form.UrbanRural}}
-        </div>
-    </div>
-    <div class='section'>
-        <h3>Vos objectifs</h3>
-        <div>
-        {{form.CreateJob.label}}
-        {{form.CreateJob}}
-        </div>
-        <div>
-        {{form.RetainedJob.label}}
-        {{form.RetainedJob}}
-        </div>
-    </div>
-    <div class='section'>
-        <h3>Informations sur le Crédit & la Banque</h3>
-        <div>
-            {{form.Bank.label}}
-            {{form.Bank}}
-        </div>
-        <div>
-            {{form.BankState.label}}
-            {{form.BankState}}
-        </div>
-        <div>
-            {{form.LowDoc.label}}
-            {{form.LowDoc}}
-        </div>
-        <div>
-            {{form.RevLineCr.label}}
-            {{form.RevLineCr}}
-        </div>
-        <div>
-            {{form.Term.label}}
-            {{form.Term}}
-        </div>
-        <div>
-            {{form.GrAppv.label}}
-            {{form.GrAppv}}
-        </div>
-    </div>
+    {{form.as_p}}
     <input type="submit" value="Envoyer">
 </form>
+{% if info %}
+<p>{{info}}</p>
+{% endif %}
 
 {% endblock content %}

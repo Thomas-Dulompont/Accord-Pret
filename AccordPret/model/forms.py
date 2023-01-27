@@ -9,7 +9,7 @@ class ModelForm(forms.Form):
     NoEmp = forms.IntegerField(label="Nombre d'employés", min_value=1, max_value=9999)
     FranchiseCode = forms.BooleanField(label="Franchisé ?")
     NAICS = forms.IntegerField(label="Code NAICS (Laisser vide si vous n'en avez pas)")
-    year_create = forms.DateField(label="Année de création")
+    year_create = forms.IntegerField(label="Année de création")
     UrbanRural = forms.CharField(label="Zone Rurale ou Urbaine")
 
     # Objectifs
@@ -24,3 +24,4 @@ class ModelForm(forms.Form):
     RevLineCr = forms.BooleanField(label="Crédit renouvelable")
     Term = forms.IntegerField(label="Nombre d'échéances en mois", min_value=1, max_value=569)
     GrAppv = forms.IntegerField(label="Montant accordé par la banque", min_value=1000, max_value=5472000)
+    in_recession =forms.BooleanField(label="En recession ?")
