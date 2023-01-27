@@ -37,10 +37,12 @@ class Request(BaseModel):
     have_franchise : int
     sector : str
     in_recession: int
-
+@app.get("/")
+async def root():
+    return {"Hello":"World"}
 
 @app.post("/predict/")
-def predict(data:Request):
+async def predict(data:Request):
 
     pred=pd.DataFrame(dict(data),index=[0])
     class_pred = model_XGBoost.predict(pred)[0]
