@@ -4,11 +4,8 @@ import requests
 import json
 
 url="http://127.0.0.1:5000/predict/"
-# Create your views here.
-def home_view(request):
-    return render(request, "index.html")
 
-def estimator_view(request):
+def home_view(request):
     if request.method == 'POST':
         form = forms.ModelForm(request.POST)
         
@@ -30,8 +27,8 @@ def estimator_view(request):
             reponse = requests.post(url,data=data)
             info = reponse.json()
             
-            return render(request, 'model.html', context={'form' : form, 'info' : info["class"]})
+            return render(request, 'index.html', context={'form' : form, 'info' : info["class"], "title" : "Estimateur"})
 
     else:
         form = forms.ModelForm()
-    return render(request, 'model.html', {'form': form})
+    return render(request, 'index.html', {'form': form})
