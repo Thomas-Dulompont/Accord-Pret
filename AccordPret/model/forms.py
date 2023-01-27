@@ -7,9 +7,9 @@ class ModelForm(forms.Form):
     City = forms.CharField(label="Ville",required=False)
     Zip = forms.IntegerField(label="Code Postal", min_value=10000, max_value=99999,required=False)
     State = forms.CharField(label="Etat", widget=forms.Select(choices=etats))
-    NoEmp = forms.IntegerField(label="Nombre d'employés", min_value=1, max_value=9999)
+    NoEmp = forms.IntegerField(label="Nombre d'employés", min_value=1, max_value=9999,initial=1)
     FranchiseCode = forms.CharField(label="Franchisé ?", widget=forms.Select(choices=[(1,"oui"),(0,"non")]))
-    NAICS = forms.IntegerField(label="Code NAICS (Laisser vide si vous n'en avez pas)")
+    NAICS = forms.IntegerField(label="Code NAICS (Ne pas modifier si vous n'en avez pas)",initial=0)
     NewExist = forms.CharField(label="A t-elle plus de 2ans ?", widget=forms.Select(choices=[("Existing","oui"),("New","non")]))
     UrbanRural = forms.CharField(label="Zone Rurale ou Urbaine", widget=forms.Select(choices=[("Urban","Urban"),("Rural","Rural"),("Undefined","Undefined")]))
    
@@ -25,6 +25,6 @@ class ModelForm(forms.Form):
 
     LowDoc = forms.CharField(label="Suivez vous le programme 'LowDoc' ?", widget=forms.Select(choices=[(1,"oui"),(0,"non")]))
     RevLineCr = forms.CharField(label="Crédit renouvelable", widget=forms.Select(choices=[(1,"oui"),(0,"non")]),required=False)
-    Term = forms.IntegerField(label="Nombre d'échéances en mois", min_value=1, max_value=569)
-    GrAppv = forms.IntegerField(label="Montant accordé par la banque", min_value=1000, max_value=5472000)
+    Term = forms.IntegerField(label="Nombre d'échéances en mois", min_value=1, max_value=569,initial=12)
+    GrAppv = forms.IntegerField(label="Montant accordé par la banque", min_value=1000, max_value=5472000,initial=1000)
     in_recession = forms.CharField(label="En recession ?", widget=forms.Select(choices=[(1,"oui"),(0,"non")]))
