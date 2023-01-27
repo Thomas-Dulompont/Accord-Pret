@@ -1,1 +1,29 @@
-<h1>Ma Superbe Application !</h1>
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>US SBA - Estimateur</title>
+</head>
+<body>
+
+    <main>
+        {% if info %}
+            <h2>{{info}}</h2>
+        {% else %}
+            <form method="post">
+                <h1>Estimateur US SBA</h1>
+                {% csrf_token %}
+                {{form.as_div}}
+                <input type="submit" value="Lancer l'estimation">
+            </form>
+        {% endif %}
+    </main>
+    <footer>
+        <p>Créé par <a href="https://github.com/StevenDelval">Steven Delval</a> & <a href="https://github.com/Thomas-Dulompont">Thomas Dulompont</a></p>
+    </footer>
+</body>
+</html>
