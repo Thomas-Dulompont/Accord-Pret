@@ -24,7 +24,7 @@ class ModelForm(forms.Form):
     BankState = forms.CharField(label="Etat", widget=forms.Select(choices=etats))
 
     LowDoc = forms.CharField(label="Suivez vous le programme 'LowDoc' ?", widget=forms.Select(choices=[(1,"oui"),(0,"non")]))
-    RevLineCr = forms.BooleanField(label="Crédit renouvelable",required=False)
+    RevLineCr = forms.CharField(label="Crédit renouvelable", widget=forms.Select(choices=[(1,"oui"),(0,"non")]),required=False)
     Term = forms.IntegerField(label="Nombre d'échéances en mois", min_value=1, max_value=569)
     GrAppv = forms.IntegerField(label="Montant accordé par la banque", min_value=1000, max_value=5472000)
     in_recession = forms.CharField(label="En recession ?", widget=forms.Select(choices=[(1,"oui"),(0,"non")]))
