@@ -26,7 +26,6 @@ def estimator_view(request):
                 "sector" : functions.get_sector(form.data["NAICS"]),
                 "in_recession": form.data["in_recession"]
                 }
-            print("\n data : \n",data)
             data = json.dumps(data)
             reponse = requests.post(url,data=data)
             info = reponse.json()
