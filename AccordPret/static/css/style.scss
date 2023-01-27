@@ -1,0 +1,42 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+nav {
+    width: 100%;
+    ul {
+        display: flex;
+        list-style: none;
+    }
+}
+body {
+    width: 100%;
+    height: max-content;
+}
+main {
+    height: max-content;
+    form {
+        height: max-content;
+        margin: auto;
+        width: 50%;
+        .section {
+            width: 100%;
+            h3 {
+                padding: 25px 0 15px;
+                grid-area: head;
+            }
+            display: grid;
+            grid-template-columns: repeat(3, 33%);
+            grid-template-areas: 
+            "head head head";
+            gap: 20px 10px;
+            justify-content: center;
+            align-items: center;
+            div {
+                display:flex;
+                flex-direction: column;
+            }
+        }
+    }
+}
