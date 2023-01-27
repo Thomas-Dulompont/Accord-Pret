@@ -24,26 +24,42 @@ main {
   height: max-content;
 }
 main form {
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
-  margin: auto;
-  width: 50%;
-}
-main form .section {
-  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
   display: grid;
-  grid-template-columns: repeat(3, 33%);
-  grid-template-areas: "head head head";
-  gap: 20px 10px;
+  grid-template-columns: repeat(2, 45%);
   justify-content: center;
-  align-items: center;
+  gap: 25px 30px;
+  padding: 20px;
+  background: #f7f7f7;
+  border-radius: 10px;
 }
-main form .section h3 {
-  padding: 25px 0 15px;
-  grid-area: head;
+main form div input[type=submit], main form div button[type=submit] {
+  width: 100%;
+  padding: 12px 20px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
-main form .section div {
-  display: flex;
-  flex-direction: column;
+main form div input[type=checkbox] {
+  margin-right: 5px;
+}
+main form div input[type=text], main form div input[type=email], main form div input[type=number], main form div select, main form div input[type=password], main form div textarea {
+  width: 100%;
+  height: 40px;
+  padding: 12px 20px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+main form div label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+main form input[type=submit]:hover, main form button[type=submit]:hover {
+  background: #45a049;
 }/*# sourceMappingURL=style.css.map */

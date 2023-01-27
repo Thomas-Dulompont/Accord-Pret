@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form method="post">
-    {% csrf_token %}
-    {{form.as_div}}
-    <input type="submit" value="Envoyer">
-</form>
-{% if info %}
-<p>{{info}}</p>
-{% endif %}
+    {% if info %}
+        <h2>{{info}}</h2>
+    {% else %}
+        <form method="post">
+            {% csrf_token %}
+            {{form.as_div}}
+            <input type="submit" value="Envoyer">
+        </form>
+    {% endif %}
 
 {% endblock content %}
