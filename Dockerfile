@@ -1,9 +1,9 @@
 FROM python:3.9.15
 
 copy . /app
-WORKDIR /app
+WORKDIR /AccordPret
 
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-CMD cd AccordPret && python manage.py runserver
+CMD python manage.py runserver
