@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-e8r&i_t_hv&h9+oz-lx3dy3f_zof1z@q6guw&xo&&t)br&@*@%
 DEBUG = True
 
 ALLOWED_HOSTS = ["accordpret.onrender.com", "api-accord-pret.onrender.com/predict/", "api-accord-pret.onrender.com"]
-CSRF_TRUSTED_ORIGINS = ["api-accord-pret.onrender.com/predict/", "api-accord-pret.onrender.com"]
+CSRF_TRUSTED_ORIGINS = ["https://api-accord-pret.onrender.com/predict/", "https://api-accord-pret.onrender.com/"]
 # Application definition
 
 INSTALLED_APPS = [
