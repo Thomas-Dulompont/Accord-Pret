@@ -1,6 +1,6 @@
-fastapi==0.89.1
-pandas==1.5.2
+fastapi
+pandas
 pydantic
-scikit_learn==1.2.1
-xgboost==1.7.3
+scikit_learn
+xgboost
 uvicorn
