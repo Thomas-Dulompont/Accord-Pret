@@ -6,4 +6,6 @@ WORKDIR /
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-CMD python manage.py runserver --noreload
+EXPOSE 8000
+
+CMD python manage.py runserver 0.0.0.0:
