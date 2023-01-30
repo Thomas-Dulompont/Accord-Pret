@@ -12,15 +12,19 @@
 
     <main>
         {% if info %}
-            <h2>{{info}}</h2>
-        {% else %}
+            {% if info == "Le credit à peu de risque d'etre en default" %}
+                <p class="true">🥳 {{info}}</p>
+            {% else %}
+                <p class="false">😵‍💫 {{info}}</p>
+            {% endif %}
+        {% endif %}
             <form method="post">
                 <h1>Estimateur US SBA</h1>
+                <p><a href="http://127.0.0.1:5000/docs" target="_blank">Accès documentation</a></p>
                 {% csrf_token %}
                 {{form.as_div}}
                 <input type="submit" value="Lancer l'estimation">
             </form>
-        {% endif %}
     </main>
     <footer>
         <p>Créé par <a href="https://github.com/StevenDelval">Steven Delval</a> & <a href="https://github.com/Thomas-Dulompont">Thomas Dulompont</a></p>

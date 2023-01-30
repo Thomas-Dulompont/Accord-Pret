@@ -56,6 +56,7 @@ main {
   height: max-content;
 }
 main form {
+  width: 50%;
   max-width: 600px;
   margin: 0px auto;
   display: grid;
@@ -74,6 +75,12 @@ main form h1 {
   text-align: center;
   text-transform: uppercase;
   margin: 25px 0;
+}
+main form p {
+  margin: 10px 0;
+  grid-area: title;
+  text-align: center;
+  font-size: 10px;
 }
 main form div {
   height: 73px;
@@ -106,7 +113,8 @@ main form div label {
   font-weight: bold;
 }
 main form input[type=submit], main form button[type=submit] {
-  width: 100%;
+  justify-self: center;
+  width: 50%;
   height: 40px;
   padding: 12px 20px;
   margin-bottom: 20px;
@@ -115,9 +123,63 @@ main form input[type=submit], main form button[type=submit] {
   box-sizing: border-box;
   background-color: white;
   transition: 0.5s;
+  grid-column: span 2;
 }
 main form input[type=submit]:hover, main form button[type=submit]:hover {
   background-color: #c9e5ce;
   transition: 0.5s;
   cursor: pointer;
+}
+
+.false {
+  background-color: rgb(255, 163, 163);
+  padding: 20px;
+  max-width: 600px;
+  width: 400px;
+  text-align: center;
+  margin: 0 auto;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 35px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.true {
+  background-color: rgb(163, 255, 203);
+  padding: 20px;
+  max-width: 600px;
+  width: 400px;
+  text-align: center;
+  margin: 0 auto;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 35px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+main {
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 800px) {
+  main form {
+    display: block;
+  }
+  main form div {
+    margin: 10px 0;
+  }
+  main form input[type=submit], main form button[type=submit] {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 600px) {
+  main form {
+    width: 90%;
+  }
 }/*# sourceMappingURL=style.css.map */

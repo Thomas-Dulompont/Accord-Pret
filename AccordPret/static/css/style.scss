@@ -52,6 +52,7 @@ footer {
 main {
     height: max-content;
     form {
+        width: 50%;
         max-width: 600px;
         margin: 0px auto;
         display: grid;
@@ -64,12 +65,19 @@ main {
         border-radius: 10px;
         -webkit-box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.5); 
         box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.5);
-        grid-template-areas: "title title";
+        grid-template-areas: 
+        "title title";
         h1 {
             grid-area: title;
             text-align: center;
             text-transform: uppercase;
             margin: 25px 0;
+        }
+        p {
+            margin: 10px 0;
+            grid-area: title;
+            text-align: center;
+            font-size: 10px;
         }
         div {
             height: 73px;
@@ -102,7 +110,8 @@ main {
             }
         }
         input[type="submit"], button[type="submit"] {
-            width: 100%;
+            justify-self: center;
+            width: 50%;
             height: 40px;
             padding: 12px 20px;
             margin-bottom: 20px;
@@ -116,6 +125,67 @@ main {
                 transition: 0.5s;
                 cursor: pointer;
             }
+            grid-column: span 2;
+        }
+    }
+}
+
+.false {
+    background-color: rgb(255, 163, 163);
+    padding: 20px;
+    max-width: 600px;
+    width: 400px;
+    text-align: center;
+    margin: 0 auto;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 35px;
+    border-radius: 10px;
+    -webkit-box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.5); 
+    box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+.true {
+    background-color: rgb(163, 255, 203);
+    padding: 20px;
+    max-width: 600px;
+    width: 400px;
+    text-align: center;
+    margin: 0 auto;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 35px;
+    border-radius: 10px;
+    -webkit-box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.5); 
+    box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+main {
+    min-height: 100vh;
+}
+
+@media screen and (max-width:  800px)
+{
+    main {
+        form {
+            display: block;
+            div {
+                margin: 10px 0;
+            }
+            input[type="submit"], button[type="submit"] {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:  600px)
+{
+    main {
+        form {
+            width: 90%;
         }
     }
 }
