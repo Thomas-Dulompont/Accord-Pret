@@ -6,4 +6,4 @@ WORKDIR /
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-CMD python manage.py runserver
+CMD python manage.py runserver --noreload
