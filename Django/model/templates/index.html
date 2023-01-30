@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>US SBA - Estimateur</title>
+</head>
+<body>
+
+    <main>
+        {% if info %}
+            {% if info == "Le credit à peu de risque d'etre en default" %}
+                <p class="true">🥳 {{info}}</p>
+            {% else %}
+                <p class="false">😵‍💫 {{info}}</p>
+            {% endif %}
+        {% endif %}
+            <form method="post">
+                <h1>Estimateur US SBA</h1>
+                <p><a href="http://127.0.0.1:5000/docs" target="_blank">Accès documentation</a></p>
+                {% csrf_token %}
+                {{form.as_div}}
+                <input type="submit" value="Lancer l'estimation">
+            </form>
+    </main>
+    <footer>
+        <p>Créé par <a href="https://github.com/StevenDelval">Steven Delval</a> & <a href="https://github.com/Thomas-Dulompont">Thomas Dulompont</a></p>
+    </footer>
+</body>
+</html>
