@@ -1,6 +1,6 @@
 fastapi
 pandas
 pydantic
-scikit_learn
+scikit-learn
 xgboost
 uvicorn
