@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-e8r&i_t_hv&h9+oz-lx3dy3f_zof1z@q6guw&xo&&t)br&@*@%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["accordpret.onrender.com"]
+ALLOWED_HOSTS = ["accordpret.onrender.com", "api-accord-pret.onrender.com/predict/", "api-accord-pret.onrender.com"]
 
 
 # Application definition
